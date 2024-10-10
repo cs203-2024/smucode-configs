@@ -29,4 +29,5 @@ jobs:
         run: |
           aws s3 sync . s3://${{ secrets.AWS_BUCKET_NAME }}/configs \
             --exclude "*" \
-            --include "*.yaml"
+            --include "*.yaml" \
+            --exclude ".github/workflows/*"

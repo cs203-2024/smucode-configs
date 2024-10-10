@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "configs/**" # Only trigger on changes in the configs directory
+  workflow_dispatch:
 
 permissions:
   id-token: write # for aws oidc connection

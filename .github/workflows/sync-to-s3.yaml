@@ -3,8 +3,6 @@ name: Sync Configs to S3
 on:
   push:
     branches: [main]
-    paths:
-      - "configs/**" # Only trigger on changes in the configs directory
   workflow_dispatch:
 
 permissions:

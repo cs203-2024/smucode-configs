@@ -2,8 +2,9 @@ server:
   port: 8081
 
 spring:
-  application:
-    name: user-service
+  config:
+    activate:
+      on-profile: prod
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.postgresql.Driver

@@ -1,0 +1,29 @@
+name: Sync Configs to S3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "configs/**" # Only trigger on changes in the configs directory
+
+permissions:
+  id-token: write # for aws oidc connection
+  contents: read # to check out code
+
+jobs:
+  sync-to-s3:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pull code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Sync configs to S3
+        run: |
+          aws s3 sync configs/ s3://smucode/configs

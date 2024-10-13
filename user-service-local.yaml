@@ -6,7 +6,7 @@ spring:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
     driverClassName: org.postgresql.Driver
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_USERNAME:password}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
@@ -16,5 +16,6 @@ spring:
 logging:
   level:
     root: INFO
-    org.springframework: INFO
+    org.springframework: DEBUG
+    org.hibernate: DEBUG
     com.cs203.smucode: DEBUG

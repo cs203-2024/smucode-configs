@@ -23,3 +23,6 @@ logging:
     org.springframework: INFO
     org.hibernate: INFO
     com.cs203.smucode: DEBUG
+
+https:
+  enabled: false
